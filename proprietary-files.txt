@@ -191,6 +191,12 @@ vendor/etc/init/init.lge.fingerprints.rc
 vendor/lib64/hw/fingerprint.msmnile.so
 vendor/lib64/libRbsFlow.so
 vendor/lib64/libets_teeclient_v2.so
+vendor/bin/hw/vendor.lge.hardware.biometrics.fingerprint@2.2-service
+vendor/etc/init/vendor.lge.hardware.biometrics.fingerprint@2.2-service.rc
+vendor/lib64/vendor.lge.hardware.biometrics.fingerprint@2.1.so
+vendor/lib64/vendor.lge.hardware.biometrics.fingerprint@2.2.so
+vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
+vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
 # Graphics - firmware
 vendor/firmware/a225_pfp.fw

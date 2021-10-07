@@ -4,3 +4,8 @@
 
 # Voice assistant
 ro.opa.device_model_id=v45-deviceaction-v45-nffuo5
+
+ro.display.underscreenfingerprint=1
+ro.display.underscreen.lightsensor.support=1
+ro.lcd.display.screen.underlightsensor.region=624,28,672,76
+ro.display.underscreen.lightsensor.screenshot.period=50

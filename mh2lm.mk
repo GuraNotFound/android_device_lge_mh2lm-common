@@ -25,6 +25,13 @@ COMMON_mh2lm_PATH := device/lge/mh2lm-common
 DEVICE_PACKAGE_OVERLAYS += \
     $(COMMON_mh2lm_PATH)/overlay \
     $(COMMON_mh2lm_PATH)/overlay-lineage
+    
+PRODUCT_ENFORCE_RRO_TARGETS := *
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    $(COMMON_mh2lm_PATH)/overlay/frameworks/base/packages/SystemUI
+    
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    $(COMMON_mh2lm_PATH)/overlay-lineage/lineage-sdk
 
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_mh2lm_PATH)/system.prop
@@ -51,6 +58,18 @@ PRODUCT_PACKAGES += \
 
 # Display
 TARGET_SCREEN_DENSITY := 406
+    
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service.lge_msmnile \
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.lge_msmnile
+    
+PRODUCT_COPY_FILES += \
+    $(COMMON_mh2lm_PATH)/configs/vendor.lineage.biometrics.fingerprint.inscreen.xml:vendor/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+    
+# FOD
+TARGET_HAS_FOD := true
+EXTRA_FOD_ANIMATIONS := true    
 
 # Keylayout - Assist
 PRODUCT_COPY_FILES += \
@@ -74,7 +93,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.barometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.hifi_sensors.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.hifi_sensors.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
-
+    
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.lge.fingerprints.sh
+    
 # common sm8150
 $(call inherit-product, device/lge/sm8150-common/sm8150.mk)

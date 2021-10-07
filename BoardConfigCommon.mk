@@ -22,6 +22,9 @@ COMMON_mh2lm_PATH := device/lge/mh2lm-common
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_mh2lm_PATH)/bluetooth
 
+# FOD
+TARGET_SURFACEFLINGER_FOD_LIB := //$(COMMON_mh2lm_PATH):libfod_extension.lge_msmnile
+
 # Kernel
 TARGET_KERNEL_CONFIG := vendor/lineage_mh2lm_defconfig
 
